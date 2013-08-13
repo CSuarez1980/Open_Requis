@@ -27,7 +27,7 @@ Public Class Form1
         dtPlants = cn.RunSentence("Select distinct Plant From LA_Indirect_Scope Where SAPBox = '" & SAP & "'").Tables(0)
 
         For Each row As DataRow In dtPlants.Rows
-            Dim Rep As New SAPCOM.OpenReqs_Report(SAP, "BM4691", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+            Dim Rep As New SAPCOM.OpenReqs_Report(SAP, "CF9019", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
 
             BGOR_L7P.ReportProgress(0, "Getting: " & SAP & " - Plant: " & row("Plant"))
 
@@ -37,7 +37,6 @@ Public Class Form1
             Rep.ExcludeMatGroup("S731516AW")
             Rep.ExcludeMatGroup("S801416AQ")
             Rep.ExcludeMatGroup("S731516AV")
-
 
             Rep.Execute()
             If Rep.Success Then
@@ -51,7 +50,7 @@ Public Class Form1
 
                     TN.ColumnName = "Usuario"
                     TN.Caption = "Usuario"
-                    TN.DefaultValue = "BM4691"
+                    TN.DefaultValue = "CF9019"
 
                     SB.DefaultValue = SAP
                     SB.ColumnName = "SAPBox"
@@ -72,7 +71,7 @@ Public Class Form1
 
                     BGOR_L7P.ReportProgress(0, "Getting Price: " & SAP & " - Plant: " & row("Plant"))
 
-                    Dim Eban As New SAPCOM.EBAN_Report(SAP, "BM4691", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                    Dim Eban As New SAPCOM.EBAN_Report(SAP, "CF9019", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                     For Each R As DataRow In Rep.Data.Rows
                         Eban.IncludeDocument(R("Req Number"))
                     Next
@@ -106,7 +105,7 @@ Public Class Form1
                                 R("Price") = Double.Parse(xPrice) / Double.Parse(rPer(0))
                                 R("Currency") = rCurr(0)
                             Else
-                                Dim Try2 As New SAPCOM.PRInfo(SAP, "BM4691", "LAT", R("Req Number")) ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                                Dim Try2 As New SAPCOM.PRInfo(SAP, "CF9019", "LAT", R("Req Number")) ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                                 If Try2.Success Then
                                     Dim I As Double
                                     I = Try2.ItemTotalPrice(R("Item Number"))
@@ -189,7 +188,7 @@ Public Class Form1
         dtPlants = cn.RunSentence("Select distinct Plant From LA_Indirect_Scope Where SAPBox = '" & SAP & "'").Tables(0)
 
         For Each row As DataRow In dtPlants.Rows
-            Dim Rep As New SAPCOM.OpenReqs_Report(SAP, "BM4691", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+            Dim Rep As New SAPCOM.OpenReqs_Report(SAP, "CF9019", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
             BGOR_GBP.ReportProgress(0, "Getting: " & SAP & " - Plant: " & row("Plant"))
 
             Rep.IncludePlant(row("Plant"))
@@ -211,7 +210,7 @@ Public Class Form1
 
                     TN.ColumnName = "Usuario"
                     TN.Caption = "Usuario"
-                    TN.DefaultValue = "BM4691"
+                    TN.DefaultValue = "CF9019"
 
                     SB.DefaultValue = SAP
                     SB.ColumnName = "SAPBox"
@@ -233,7 +232,7 @@ Public Class Form1
 
                     BGOR_GBP.ReportProgress(0, "Getting Price: " & SAP & " - Plant: " & row("Plant"))
 
-                    Dim Eban As New SAPCOM.EBAN_Report(SAP, "BM4691", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                    Dim Eban As New SAPCOM.EBAN_Report(SAP, "CF9019", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                     For Each R As DataRow In Rep.Data.Rows
                         Eban.IncludeDocument(R("Req Number"))
                     Next
@@ -267,7 +266,7 @@ Public Class Form1
                                 R("Price") = Double.Parse(xPrice) / Double.Parse(rPer(0))
                                 R("Currency") = rCurr(0)
                             Else
-                                Dim Try2 As New SAPCOM.PRInfo(SAP, "BM4691", "LAT", R("Req Number")) ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                                Dim Try2 As New SAPCOM.PRInfo(SAP, "CF9019", "LAT", R("Req Number")) ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                                 If Try2.Success Then
                                     R("Price") = Try2.ItemTotalPrice(R("Item Number"))
                                     R("Currency") = rCurr(0)
@@ -299,7 +298,7 @@ Public Class Form1
         For Each row As DataRow In dtPlants.Rows
             Try
 
-                Dim Rep As New SAPCOM.OpenReqs_Report(SAP, "BM4691", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                Dim Rep As New SAPCOM.OpenReqs_Report(SAP, "CF9019", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                 BGOR_L6P.ReportProgress(0, "Getting: " & SAP & " - Plant: " & row("Plant").ToString.Trim)
 
                 Rep.IncludePlant(row("Plant").ToString.Trim)
@@ -328,7 +327,7 @@ Public Class Form1
 
                         TN.ColumnName = "Usuario"
                         TN.Caption = "Usuario"
-                        TN.DefaultValue = "BM4691"
+                        TN.DefaultValue = "CF9019"
 
                         SB.DefaultValue = SAP
                         SB.ColumnName = "SAPBox"
@@ -350,7 +349,7 @@ Public Class Form1
 
                         BGOR_L6P.ReportProgress(0, "Getting Price: " & SAP & " - Plant: " & row("Plant"))
 
-                        Dim Eban As New SAPCOM.EBAN_Report(SAP, "BM4691", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                        Dim Eban As New SAPCOM.EBAN_Report(SAP, "CF9019", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                         Dim RunEBAN As Boolean = False
                         For Each R As DataRow In Rep.Data.Rows
                             If R("Item Number") = "0" Then
@@ -402,7 +401,7 @@ Public Class Form1
                                             R("Currency") = rCurr(0)
                                         Else
                                             BGOR_L6P.ReportProgress(0, "...-> Getting price from SAP: " & SAP & " - Plant: " & row("Plant").ToString.Trim & " - " & R("Req Number").ToString)
-                                            Dim Try2 As New SAPCOM.PRInfo(SAP, "BM4691", "LAT", R("Req Number")) ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                                            Dim Try2 As New SAPCOM.PRInfo(SAP, "CF9019", "LAT", R("Req Number")) ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                                             If Try2.Success Then
                                                 R("Price") = Try2.ItemTotalPrice(R("Item Number"))
                                                 R("Currency") = rCurr(0)
@@ -437,7 +436,7 @@ Public Class Form1
          dtPlants = cn.RunSentence("Select distinct Plant From LA_Indirect_Scope Where SAPBox = '" & SAP & "'").Tables(0)
 
         For Each row As DataRow In dtPlants.Rows
-            Dim Rep As New SAPCOM.OpenReqs_Report(SAP, "BM4691", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+            Dim Rep As New SAPCOM.OpenReqs_Report(SAP, "CF9019", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
             BGOR_G4P.ReportProgress(0, "Getting: " & SAP & " - Plant: " & row("Plant"))
 
             Rep.IncludePlant(row("Plant"))
@@ -461,7 +460,7 @@ Public Class Form1
 
                     TN.ColumnName = "Usuario"
                     TN.Caption = "Usuario"
-                    TN.DefaultValue = "BM4691"
+                    TN.DefaultValue = "CF9019"
 
                     SB.DefaultValue = SAP
                     SB.ColumnName = "SAPBox"
@@ -482,7 +481,7 @@ Public Class Form1
 
                     BGOR_G4P.ReportProgress(0, "Getting Price: " & SAP & " - Plant: " & row("Plant"))
 
-                    Dim Eban As New SAPCOM.EBAN_Report(SAP, "BM4691", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                    Dim Eban As New SAPCOM.EBAN_Report(SAP, "CF9019", "LAT") ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                     For Each R As DataRow In Rep.Data.Rows
                         Eban.IncludeDocument(R("Req Number"))
                     Next
@@ -516,7 +515,7 @@ Public Class Form1
                                 R("Price") = Double.Parse(xPrice) / Double.Parse(rPer(0))
                                 R("Currency") = rCurr(0)
                             Else
-                                Dim Try2 As New SAPCOM.PRInfo(SAP, "BM4691", "LAT", R("Req Number")) ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
+                                Dim Try2 As New SAPCOM.PRInfo(SAP, "CF9019", "LAT", R("Req Number")) ' -> Change TNumber; use machine owner, password is taken from LA Tool Password setup @ System menu/Variants/SAP Passwords
                                 If Try2.Success Then
                                     R("Price") = Try2.ItemTotalPrice(R("Item Number"))
                                     R("Currency") = rCurr(0)

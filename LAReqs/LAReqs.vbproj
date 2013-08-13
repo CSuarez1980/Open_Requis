@@ -39,7 +39,7 @@
   <ItemGroup>
     <Reference Include="OAConnection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\OA Tool\OA Tool\bin\Debug\OAConnection.dll</HintPath>
+      <HintPath>..\..\LA_Tool\OA Tool\bin\Debug\OAConnection.dll</HintPath>
     </Reference>
     <Reference Include="SAPCOM, Version=1.0.1127.847, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
